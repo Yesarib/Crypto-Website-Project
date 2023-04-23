@@ -1,0 +1,135 @@
+.cp-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #101014;
+    padding: 0px 0px;
+    color:white;
+  }
+.cp-cont h2{
+    margin-top: 50px;
+}
+
+.btns {
+    background: #101014;
+    color:white;
+    width: 64%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btns Button{
+    color: white;
+    display: inline;
+    background-color: #23232b;
+    border-radius: 15px;
+    margin-top: 35px;
+    margin-left: 15px;
+}
+
+.btns .search input[type=text]{
+    width:300px;
+    height:25px;
+    border-radius:25px;
+    margin-top: 35px;
+    margin-left: 15px;
+    border: none;
+}
+     
+.btns .search{
+    float:right;
+}
+     
+.btns .search button{
+    background-color: transparent;
+    color: #f2f2f2;
+    padding: 5px ;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.all-cp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: auto;
+    margin-top: 50px;
+}
+  
+.all-cp table {
+    width: 80em;
+    margin-right: 50px;
+  }
+  
+.all-cp th,
+.all-cp td {
+    padding: 25px;
+}
+  
+.all-cp th {
+    color: #b7b7b7;
+    font-weight: 500;
+    font-size: 16px;
+}
+  
+.all-cp td {
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.all-cp td img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.all-cp td div {
+    display: flex;
+    align-items: center;
+}
+.all-cp td div img {
+    max-width: 40%;
+    width: 40px;
+    height: 40px;
+    max-height: 40%;
+}
+.all-cp td div div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    font-size: 17px;
+}
+  
+.all-cp td div div div:last-child {
+    font-size: 12px;
+    color: gray;
+}
+
+.all-cp td:nth-child(2){
+    width: 500px;
+    padding: 0;
+    margin: 0;
+}
+.red {
+    color: red;
+}
+  
+.green {
+    color: green;
+}
+
+.btnn button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    font-family: 'Gill Sans' sans-serif;
+    font-size: medium;
+    cursor: pointer;
+}

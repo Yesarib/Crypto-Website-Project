@@ -1,0 +1,12 @@
+.chart {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15em;
+    margin-top: 7rem;
+  }
+
+.chart-btn{
+    color: white;
+}

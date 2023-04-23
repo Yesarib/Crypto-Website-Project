@@ -1,0 +1,89 @@
+.bottom{
+    margin-top: 7rem;
+    color:white;
+    margin-left: 12rem;
+    width: 80%;
+    background-color: #101014;
+    border-radius: 2rem;
+}
+.bottom h3{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: medium;
+    font-size: 24px;
+
+}
+.crypto-header{
+    justify-content: center;
+    align-items: center;
+
+}
+
+.crypto-header .list{
+    list-style: none;
+}
+.crypto-header .list li {
+    font-size: 16px;
+    font-weight: 500;
+    display: inline;
+    margin: 9rem;
+}
+
+.crypto-header .data{
+    margin-top: 2rem;
+    list-style: none;
+}
+.crypto-header .data li {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: inline;
+    margin: 9rem;
+    margin-bottom: 3rem;
+}
+
+.data {
+    display: flex;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}    
+.data th,
+.data td {
+    width: 18rem;
+    font-size: 16px;
+    
+}
+
+
+.data .symbol {
+    display: flex;
+    align-items: center;
+}
+
+.data td div {
+    display: flex;
+    align-items: center;
+  }
+  
+.data td div img {
+    margin-right: 10px;
+    width: 20%;
+}
+  
+.data td div div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    font-size: 17px;
+}
+  
+.data td div div div:last-child {
+    font-size: 12px;
+    color: gray;
+}
+

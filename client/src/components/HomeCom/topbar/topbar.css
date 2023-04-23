@@ -1,0 +1,42 @@
+body {
+  background-color: #16171a;
+}
+
+.tp-bar{
+  /* background-image: -webkit-linear-gradient(50deg, #FFA500 50%, #F7931A 50%); */
+  box-shadow: 0px 2px 4px rgba(71, 47, 1, 0.55);
+  display: flex;
+}
+
+.logo-section {
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Gill Sans" sans-serif;
+  font-size: 24px;
+  color: white;
+  margin-top: 35px;
+}
+
+.links {
+  width: 70%;
+  color: white;
+  margin-top: 25px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.list {
+  list-style-type: none;
+}
+.list li {
+  display: inline;
+  margin: 2rem;
+}
+
+.btn:hover {
+  background-color: #0066cc;
+  color: white;
+}

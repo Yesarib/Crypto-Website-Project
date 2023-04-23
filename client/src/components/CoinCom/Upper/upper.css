@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10rem;
+  color: white;
+}
+
+
+.first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.first .rank {
+  width: 75px;
+  background-color: gray;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.first .link .btn {
+  color: gray;
+  text-transform: lowercase;
+}
+
+.coin-image img {
+  width: 60px;
+  height: 60px;
+}
+
+.coin-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.coin-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.coin-symbol {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(163, 163, 163);
+}
+
+.price-header {
+  color: rgb(148, 147, 147);
+}
+.price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  font-weight: 400;
+  font-size: 36px;
+}
+.price-change {
+  height: 25px;
+  background-color: rgba(145, 145, 145, 0.2);
+  border-radius: 4px;
+  margin-left: 15px;
+  margin-top: 10px;
+  padding: 4px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.market-datas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.alt {
+  color: gray;
+  margin-top: 25px;
+}
+
+.volume {
+  margin-left: 75px;
+}

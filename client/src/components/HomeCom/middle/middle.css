@@ -1,0 +1,206 @@
+.cont {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.left {
+  width: 50%;
+  color: orange;
+  font-size: 56px;
+  font-family: "Segoe UI" sans-serif;
+}
+
+.left p {
+  color: white;
+  font-size: 20px;
+  width: auto;
+}
+
+.left button {
+  background-color: transparent;
+  color: orange;
+  border: none;
+  font-size: 36px;
+  font-family: "Segoe UI" sans-serif;
+}
+
+.right img {
+  margin-left: 5rem;
+  width: 80%;
+  height: auto;
+}
+
+.conti {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.cent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+.cent ul {
+  margin-right: 10rem;
+}
+.cent ul li {
+  list-style: none;
+  text-align: start;
+  margin: 0.5rem;
+}
+
+.conti .imgs {
+  width: 30%;
+}
+.conti .imgs img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cent button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  width: 10rem;
+  height: 3rem;
+  border-radius: 10px;
+  font-family: "Segoe UI" sans-serif;
+  font-size: large;
+}
+
+.cta {
+  display: flex;
+  padding: 10px 45px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  color: white;
+  background: orange;
+  border-radius: 10px;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #fffffe;
+}
+
+.cta span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 45px;
+}
+
+span {
+  transform: skewX(15deg);
+}
+
+span:nth-child(2) {
+  width: 20px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+
+.coins {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 10rem;
+  width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-image: url("https://img.freepik.com/free-vector/abstract-technological-background_23-2148897676.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+
+.coin-row {
+  display: inline-block;
+  padding: 10px;
+  margin: 5rem;
+}
+
+.coin-image {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.coin {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  color: white;
+}
+
+.coin h1 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.coin-symbol {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.coin-data {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+}
+
+.coin-price {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.coin-volume {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+  padding: 0;
+}
+
+.coin-percent {
+  font-size: 14px;
+  margin: 0;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
