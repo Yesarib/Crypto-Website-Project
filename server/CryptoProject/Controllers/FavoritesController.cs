@@ -29,18 +29,27 @@ namespace CryptoProject.Controllers
 
             foreach (var favorite in favorites)
             {
-                var url = $"https://api.coingecko.com/api/v3/coins/{favorite.CryptoId}";
-                var response = await httpClient.GetAsync(url);
+                // var url = $"https://api.coingecko.com/api/v3/coins/{favorite.CryptoId}";
+                var newUrl = $"https://api.coinstats.app/public/v1/coins/{favorite.CryptoId}?currency=USD";
+                var response = await httpClient.GetAsync(newUrl);
 
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     var cryptoInfo = JsonConvert.DeserializeObject<CryptoInfo>(content);
-                    cryptoInfo.CurrentPrice = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(JObject.Parse(content)["market_data"]["current_price"].ToString());
-                    cryptoInfo.ImageUrl = JObject.Parse(content)["image"]["small"].ToString();
-                    cryptoInfo.PriceChange1d = (decimal)JObject.Parse(content)["market_data"]["price_change_percentage_24h"].Value<double>();
-                    cryptoInfo.MarketCap = JObject.Parse(content)["market_data"]["market_cap"]["usd"].ToString();
-                    cryptoInfo.CryptoId = JObject.Parse(content)["id"].ToString();
+
+
+                    cryptoInfo.CurrentPrice = JObject.Parse(content)["coin"]["price"].Value<decimal>();
+                    cryptoInfo.ImageUrl = JObject.Parse(content)["coin"]["icon"].ToString();
+                    cryptoInfo.Symbol = JObject.Parse(content)["coin"]["symbol"].ToString();
+                    cryptoInfo.Name = JObject.Parse(content)["coin"]["name"].ToString();
+                    cryptoInfo.PriceChange1d = (decimal)JObject.Parse(content)["coin"]["priceChange1d"].Value<double>();
+                    cryptoInfo.MarketCap = JObject.Parse(content)["coin"]["marketCap"].ToString();
+                    cryptoInfo.CryptoId = JObject.Parse(content)["coin"]["id"].ToString();
+
+
+
+
                     cryptoInfos.Add(cryptoInfo);
                 }
             }
@@ -51,7 +60,7 @@ namespace CryptoProject.Controllers
         [HttpPost]
         public async Task<ActionResult<Favorite>> AddFavorite(Favorite favorite)
         {
-            var userId = favorite.UserId; 
+            var userId = favorite.UserId;
             var existingFavorite = await _context.Favorites
                 .FirstOrDefaultAsync(f => f.UserId == userId && f.CryptoId == favorite.CryptoId);
 
@@ -69,14 +78,24 @@ namespace CryptoProject.Controllers
             _context.Favorites.Add(newFav);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetFavorites), new {id = newFav.Id}, newFav);
+            return CreatedAtAction(nameof(GetFavorites), new { id = newFav.Id }, newFav);
         }
 
-        // [HttpDelete]
-        // public async Task<ActionResult<Favorite>> DeleteFavorite(string cryptoId)
-        // {
+        [HttpDelete("{userId}/{cryptoId}")]
+        public async Task<ActionResult<Favorite>> DeleteFavorite(int userId, string cryptoId)
+        {
+            var favorite = await _context.Favorites.FirstOrDefaultAsync(f => f.UserId == userId && f.CryptoId == cryptoId);
 
-        // }
+            if (favorite == null)
+            {
+                return NotFound();
+            }
+
+            _context.Favorites.Remove(favorite);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
 
     }
 }

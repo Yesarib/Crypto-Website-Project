@@ -4,12 +4,41 @@ import "./allcp.css";
 import { Button } from "@mui/material";
 import { AllCryptos } from "../../data";
 import Favorites from "../Favorites/Favorites";
+import { AddFavoriteURL } from "../../data";
 
 const AllCrypto = () => {
   const [crypto, setCrypto] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [showFavorites, setShowFavorites] = useState(false);
+
+  const token = localStorage.getItem("userToken")
+  const userToken = parseJwt(token)
+  const userFav = userToken.unique_name;
+
+  console.log(userFav);
+
+  const addFavorite = (userId,cryptoId) => {
+    axios.post(AddFavoriteURL,{
+      userId: userId,
+      cryptoId : cryptoId
+    })
+    .then((res) => {
+      try {
+        if (res.status === 201) {
+          alert("Favorilere eklendi");
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+      
+    })
+  }
+
+  const handleAddFavorite = (cryptoId) => {
+    addFavorite(userFav, cryptoId);
+  };
+  
 
   useEffect(() => {
     try {
@@ -25,6 +54,7 @@ const AllCrypto = () => {
     } catch (error) {
       console.log(error.message);
     }
+
   }, [currentPage]);
 
   function numberWithCommas(x) {
@@ -37,6 +67,7 @@ const AllCrypto = () => {
   const prevPage = () => {
     setCurrentPage(currentPage - 10);
   };
+
   return (
     <>
       <div className="cp-cont">
@@ -82,7 +113,7 @@ const AllCrypto = () => {
                   {crypto.slice(0, 10).map((coin, index) => (
                     <tr key={coin.id}>
                       <td align="right">
-                        <Button style={{ height: "100%" }}>
+                        <Button onClick={() => handleAddFavorite(coin.id)} style={{ height: "100%" }}>
                           <img
                             style={{ width: "25px", height: "25px" }}
                             src="https://cdn-icons-png.flaticon.com/512/4208/4208420.png"
@@ -147,3 +178,13 @@ const AllCrypto = () => {
 };
 
 export default AllCrypto;
+
+
+function parseJwt(token) {
+  if (!token) {
+    return null;
+  }
+  const base64Url = token.split(".")[1];
+  const base64 = base64Url.replace("-", "+").replace("_", "/");
+  return JSON.parse(window.atob(base64));
+}
