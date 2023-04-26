@@ -17,7 +17,8 @@ const Knn = ({cryptoId}) => {
 
   return (
     <div>
-        <h5 style={{color:'white'}}> K-NN Algoritmasına göre bitcoinin günlük tahmini : {knn}</h5>
+        <h5 > K-NN Algoritmasına göre {cryptoId} günlük tahmini </h5>
+        <h5 > ${knn} </h5>
     </div>
   )
 }

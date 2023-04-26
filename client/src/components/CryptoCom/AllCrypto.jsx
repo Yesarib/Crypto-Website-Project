@@ -12,6 +12,7 @@ const AllCrypto = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [showFavorites, setShowFavorites] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortOrder, setSortOrder] = useState("ascending");
 
   const token = localStorage.getItem("userToken");
   const userToken = parseJwt(token);
@@ -46,18 +47,6 @@ const AllCrypto = () => {
     setTotalPages(Math.ceil(result.headers["x-total-count"] / 10));
   };
 
-  useEffect(() => {
-    try {
-      fetchData();
-    } catch (error) {
-      console.log(error.message);
-    }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage]);
-
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
   const nextPage = () => {
     setCurrentPage(currentPage + 10);
   };
@@ -95,17 +84,55 @@ const AllCrypto = () => {
     }
   };
 
+  const sortByName = () => {
+    const sorted = [...crypto].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+  
+    if (sortOrder === "descending") {
+      sorted.reverse();
+    }
+  
+    setCrypto(sorted);
+    setSortOrder(sortOrder === "ascending" ? "descending" : "ascending");
+  };
+
+  const sortByPrice = () => {
+    const sorted = [...crypto].sort((a, b) => a.price - b.price);
+    if (sortOrder === "descending") {
+      sorted.reverse();
+    }
+
+    setCrypto(sorted);
+    setSortOrder(sortOrder === "ascending" ? "descending" : "ascending");
+
+  };
+
+  useEffect(() => {
+    try {
+      fetchData();
+    } catch (error) {
+      console.log(error.message);
+    }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage]);
+
+
+  
+
   return (
     <>
       <div className="cp-cont">
         <div className="btns">
           <div>
+            <Button className="opt" onClick={() => setShowFavorites(true)}>
+              <i type='solid' className="fas star-color mr-1 fa-star"></i>
+              Favoriler
+            </Button>
             <Button className="opt" onClick={() => setShowFavorites(false)}>
               Tüm Kriptolar
             </Button>
-            <Button className="opt" onClick={() => setShowFavorites(true)}>
-              Favoriler
-            </Button>
+            
           </div>
 
           <div className="search">
@@ -120,11 +147,14 @@ const AllCrypto = () => {
         {!showFavorites ? (
           <div className="cp-cont">
             <div className="all-cp">
+              <div>
+                <p style={{marginBottom:'25px'}}>Bugün küresel kripto para piyasasının değeri1,24 Trilyon dolardır ve son 24 saatte 0.8%oranında bir değişim olmuştur.</p>
+              </div>
               <table height="500" cellPadding="5">
-                <tr>
-                  <th></th>
-                  <th align="left">Coin</th>
-                  <th align="right">Fiyat $</th>
+                <tr style={{borderTop:'1px solid #212529',borderBottom:'1px solid #212529'}}>
+                  <th>#</th>
+                  <th onClick={sortByName} align="left">Coin</th>
+                  <th onClick={sortByPrice} align="right">Fiyat $</th>
                   <th align="right">Market Cap</th>
                   <th align="right">Günlük Değişim</th>
                 </tr>
@@ -153,8 +183,8 @@ const AllCrypto = () => {
                           >
                             <img src={coin.icon} alt={coin.name} />
                             <div style={{ marginLeft: "20px", width: "150px" }}>
-                              <div>{coin.symbol.toUpperCase()}</div>
                               <div>{coin.name}</div>
+                              <div>{coin.symbol.toUpperCase()}</div>
                             </div>
                           </div>
                         </Button>
@@ -208,4 +238,9 @@ function parseJwt(token) {
   const base64Url = token.split(".")[1];
   const base64 = base64Url.replace("-", "+").replace("_", "/");
   return JSON.parse(window.atob(base64));
+}
+
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

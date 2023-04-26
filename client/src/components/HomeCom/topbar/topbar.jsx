@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./topbar.css";
-import { Button } from "@mui/material";
 import authService from "../../../contexts/Authservice";
 
 const Topbar = () => {
-
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -23,43 +21,65 @@ const Topbar = () => {
     <div className="tp-bar">
       <div className="logo-section">CRYPTO</div>
       <div className="links">
-        <ul className="list ">
+        <ul className="list">
           <li>
-            <Button style={{ color: "white" }} href="/" className="btn">
-              Anasayfa
-            </Button>
+            <a style={{ color: "white", textDecoration: "none" }} href="/">
+              {" "}
+              Ana Sayfa
+            </a>
           </li>
           <li>
-            <Button style={{ color: "white" }} href="/news" className="btn">
-              Haberler
-            </Button>
+            <a style={{ color: "white", textDecoration: "none" }} href="/news">
+              {" "}
+              Haberler{" "}
+            </a>
           </li>
           <li>
-            <Button style={{ color: "white" }} href="/cryptos" className="btn">
+            <a
+              style={{ color: "white", textDecoration: "none" }}
+              href="/cryptos"
+            >
+              {" "}
               Göz At
-            </Button>
+            </a>
           </li>
-          <li>
-            {currentUser ? (
-              <>
+          {currentUser && (
+            <li className="menu-list">
+              <span className="dropdown">
                 <span style={{ color: "white" }}>
-                  Merhaba <span style={{ color: "orange" }}> {user.name} </span>
+                  Merhaba{" "}
+                  <span style={{ color: "orange" }}> {user.name} </span>
                 </span>
-                <Button
-                  style={{ color: "white" }}
-                  href="/"
-                  className="btn"
-                  onClick={logOut}
-                >
-                  Çıkış
-                </Button>
-              </>
-            ) : (
-              <Button style={{ color: "white" }} href="/login" className="btn">
-                Giriş
-              </Button>
-            )}
-          </li>
+                <ul className="dropdown-content">
+                  <li>
+                    <a style={{ color: "white", textDecoration: "none" }} href="%">
+                      Profil
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      style={{ color: "white", textDecoration: "none" }}
+                      onClick={logOut}
+                    >
+                      Çıkış
+                    </a>
+                  </li>
+                </ul>
+              </span>
+            </li>
+          )}
+          {!currentUser && (
+            <li>
+              <a
+                style={{ color: "white", textDecoration: "none" }}
+                href="/login"
+              >
+                {" "}
+                Giriş{" "}
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </div>

@@ -10,3 +10,21 @@
 .chart-btn{
     color: white;
 }
+
+.algorithms{
+  display: flex;
+  justify-content: center;
+  margin-top: 7em;
+}
+
+.algorithm{
+  width: 450px;
+  background-color: rgb(224, 148, 5);
+  color:white;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 2px;
+  border-radius: 10px;
+}

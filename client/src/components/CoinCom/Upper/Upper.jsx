@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SingleCoin } from "../../../data";
 import "./upper.css";
-import Knn from "../../KNN/Knn";
 
 const Upper = () => {
   const { id } = useParams();
@@ -169,9 +168,7 @@ const Upper = () => {
         </div>
       </div>
     </div>
-    <div>
-    <Knn cryptoId={id} />
-  </div>
+    
   </>
   );
 };

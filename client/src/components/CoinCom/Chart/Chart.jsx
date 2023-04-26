@@ -4,6 +4,8 @@ import { HistoricalChart } from "../../../data";
 import { useParams } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import { chartDays } from "../../../data";
+import Knn from "../../KNN/Knn";
+import authService from "../../../contexts/Authservice";
 import { Button } from "@mui/material";
 import {
   Chart as ChartJS,
@@ -34,7 +36,9 @@ const Chart = () => {
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
   const [flag, setflag] = useState(false);
+  const [currentUser, setCurrentUser] = useState(undefined);
 
+  
   const fetchCoin = async () => {
     const { data } = await axios.get(HistoricalChart(id, days));
     setflag(true);
@@ -42,11 +46,17 @@ const Chart = () => {
     // console.log(data.prices);
   };
 
+
+
   useEffect(() => {
+    const user = authService.getCurrentUser();
+    setCurrentUser(user);
+
     fetchCoin();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
+    <>
     <div className="chart">
       <Line
         data={{
@@ -102,7 +112,23 @@ const Chart = () => {
         ))}
       </div>
     </div>
+    {currentUser ? (
+      <div className="algorithms">
+      <div className="algorithm">
+        <Knn cryptoId={id} />
+      </div>
+      <div className="algorithm">
+        <Knn cryptoId={id} />
+      </div>
+    </div>
+    ) : (
+      <div></div>
+    )}
+    
+  </>
   );
 };
 
 export default Chart;
+
+

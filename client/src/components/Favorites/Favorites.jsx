@@ -115,11 +115,15 @@ const Favorites = () => {
         </div>
       ) : (
         <div className="no-user">
-          <div >
-            <p>Görünüşe göre henüz giriş yapmamışsınız</p>
-          </div>
-          <div className="b">
-            <a href="/login" className="to-login"> Giriş </a>
+          <div style={{marginTop:'5em'}}>
+            <img src="https://static.coingecko.com/s/portfolios/cta_portfolio-68ffa1c9d19348354e3087f3f1cabd555afb08606a97e5fc2abfb08b25483ea1.svg" alt="img" />
+            <h5>Henüz favori coininiz yok.</h5>
+            <div>
+              <a href="/login">Başlamak için yeni bir coin ekleyin! </a>
+            </div>
+            <div>
+              <a href="/login">Giriş yapmak için </a>
+            </div>
           </div>
         </div>
       )}
