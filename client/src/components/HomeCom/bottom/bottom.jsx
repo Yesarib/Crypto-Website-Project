@@ -4,15 +4,6 @@ import axios from "axios";
 import { BASEURL } from "../../../data";
 
 const Bottom = () => {
-
-  // axios.get("http://localhost:53731/api/Crypto")
-  // .then((res)=> {
-  //   console.log(res);
-  // })
-  axios.get("http://localhost:53731/api/Favorites?userId=2").then((res) => {
-    console.log(res);
-  })
-
   const [crypto, setCrypto] = useState([]);
   useEffect(() => {
     axios.get(BASEURL).then((res) => {

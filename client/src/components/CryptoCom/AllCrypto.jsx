@@ -11,50 +11,48 @@ const AllCrypto = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [showFavorites, setShowFavorites] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const token = localStorage.getItem("userToken")
-  const userToken = parseJwt(token)
+  const token = localStorage.getItem("userToken");
+  const userToken = parseJwt(token);
   const userFav = userToken.unique_name;
 
-  console.log(userFav);
 
-  const addFavorite = (userId,cryptoId) => {
-    axios.post(AddFavoriteURL,{
-      userId: userId,
-      cryptoId : cryptoId
-    })
-    .then((res) => {
-      try {
-        if (res.status === 201) {
-          alert("Favorilere eklendi");
+  const addFavorite = (userId, cryptoId) => {
+    axios
+      .post(AddFavoriteURL, {
+        userId: userId,
+        cryptoId: cryptoId,
+      })
+      .then((res) => {
+        try {
+          if (res.status === 201) {
+            alert("Favorilere eklendi");
+          }
+        } catch (error) {
+          console.log(error.message);
         }
-      } catch (error) {
-        console.log(error.message);
-      }
-      
-    })
-  }
+      });
+  };
 
   const handleAddFavorite = (cryptoId) => {
     addFavorite(userFav, cryptoId);
   };
-  
+
+  const fetchData = async () => {
+    const result = await axios.get(AllCryptos(currentPage));
+    setCrypto(result.data.data.coins);
+
+    setTotalPages(Math.ceil(result.headers["x-total-count"] / 10));
+  };
 
   useEffect(() => {
     try {
-      const fetchData = async () => {
-        const result = await axios.get(AllCryptos(currentPage));
-        console.log(result);
-        setCrypto(result.data.data.coins);
-        console.log(result.data);
-
-        setTotalPages(Math.ceil(result.headers["x-total-count"] / 10));
-      };
       fetchData();
     } catch (error) {
       console.log(error.message);
     }
-
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   function numberWithCommas(x) {
@@ -67,36 +65,57 @@ const AllCrypto = () => {
   const prevPage = () => {
     setCurrentPage(currentPage - 10);
   };
+  
+  const handleSearch = (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+  
+    let filteredCryptos = [];
+    if (showFavorites) {
+      filteredCryptos = crypto.filter(
+        (crypto) =>
+          userToken.favorites?.includes(crypto.id) &&
+          (searchTerm === "" || crypto.name.toLowerCase()?.includes(crypto.id))
+      );
+    } else {
+      filteredCryptos = crypto.filter((crypto) =>
+        searchTerm === "" || crypto.name.toLowerCase()?.includes(searchTerm)
+      );
+    }
+  
+    setCrypto(filteredCryptos);
+    if (searchTerm === "") {
+      if (showFavorites) {
+        setCrypto(
+          crypto.filter((crypto) => userToken.favorites?.includes(crypto.cryptoId))
+        );
+      } else {
+        fetchData();
+      }
+    }
+  };
 
   return (
     <>
       <div className="cp-cont">
         <div className="btns">
           <div>
-            <Button className="opt"
-              onClick={() => setShowFavorites(false)}
-            >
+            <Button className="opt" onClick={() => setShowFavorites(false)}>
               Tüm Kriptolar
             </Button>
-            <Button className="opt"
-              onClick={() => setShowFavorites(true)}
-            >
+            <Button className="opt" onClick={() => setShowFavorites(true)}>
               Favoriler
             </Button>
           </div>
-          
+
           <div className="search">
-            <input type="text"
-                      placeholder=" Search Courses"
-                      name="search" />
-                  <button>
-                      <i class="fa fa-search"
-                          style={{fontSize: "18px"}}>
-                      </i>
-                  </button>
+            <input type="text" placeholder=" Kripto Ara" value={searchTerm} onChange={handleSearch} name="search" />
+
+            <button>
+              <i class="fa fa-search" style={{ fontSize: "18px" , marginTop:'5px'}}></i>
+            </button>
           </div>
         </div>
-        
 
         {!showFavorites ? (
           <div className="cp-cont">
@@ -113,7 +132,10 @@ const AllCrypto = () => {
                   {crypto.slice(0, 10).map((coin, index) => (
                     <tr key={coin.id}>
                       <td align="right">
-                        <Button onClick={() => handleAddFavorite(coin.id)} style={{ height: "100%" }}>
+                        <Button
+                          onClick={() => handleAddFavorite(coin.id)}
+                          style={{ height: "100%" }}
+                        >
                           <img
                             style={{ width: "25px", height: "25px" }}
                             src="https://cdn-icons-png.flaticon.com/512/4208/4208420.png"
@@ -160,7 +182,7 @@ const AllCrypto = () => {
                 </tbody>
               </table>
             </div>
-            <div className="btnn" style={{ color: "white", marginTop: "15px" }}>
+            <div className="btnn">
               <button onClick={prevPage} disabled={currentPage === 1}>
                 Önceki
               </button>
@@ -178,7 +200,6 @@ const AllCrypto = () => {
 };
 
 export default AllCrypto;
-
 
 function parseJwt(token) {
   if (!token) {

@@ -53,3 +53,5 @@ export const RegisterURL = "http://localhost:5258/api/User/register";
 export const FavoriteURL = (userId) => `http://localhost:5258/api/Favorites?userId=${userId}`
 export const AddFavoriteURL =  `http://localhost:5258/api/Favorites` 
 export const DeleteFavoriteURL = (userId,cryptoId) => `http://localhost:5258/api/Favorites/${userId}/${cryptoId}`
+
+export const KnnAlgorithm = (cryptoId) => `http://localhost:5258/api/Algorithm?cryptoId=${cryptoId}`

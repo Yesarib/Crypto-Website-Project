@@ -1,0 +1,30 @@
+.no-user{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.no-user .b {
+    display: flex;
+    justify-content: center;
+}
+
+.no-user .to-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    background-color: orange;
+    color:white;
+    text-transform: none;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+
+.no-user .to-login:hover {
+    background-color: white;
+    color: orange
+}

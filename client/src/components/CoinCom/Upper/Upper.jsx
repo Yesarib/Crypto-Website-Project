@@ -4,11 +4,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SingleCoin } from "../../../data";
 import "./upper.css";
+import Knn from "../../KNN/Knn";
 
 const Upper = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState([]);
-  
+
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
     console.log(data);
@@ -25,6 +26,7 @@ const Upper = () => {
   }
 
   return (
+    <>
     <div className="container">
       <div>
         <div className="leftside">
@@ -167,6 +169,10 @@ const Upper = () => {
         </div>
       </div>
     </div>
+    <div>
+    <Knn cryptoId={id} />
+  </div>
+  </>
   );
 };
 

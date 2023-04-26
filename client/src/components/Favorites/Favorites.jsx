@@ -3,6 +3,7 @@ import authService from "../../contexts/Authservice";
 import { Button } from "@mui/material";
 import { DeleteFavoriteURL, FavoriteURL } from "../../data";
 import axios from "axios";
+import './favorites.css'
 
 const Favorites = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -113,17 +114,15 @@ const Favorites = () => {
           )}
         </div>
       ) : (
-        <div>Kayıt olmak için</div>
+        <div className="no-user">
+          <div >
+            <p>Görünüşe göre henüz giriş yapmamışsınız</p>
+          </div>
+          <div className="b">
+            <a href="/login" className="to-login"> Giriş </a>
+          </div>
+        </div>
       )}
-
-      {/* <div className="btnn" style={{color:'white',marginTop:'15px'}}>
-        <button onClick={prevPage} disabled={currentPage === 1}>
-          Önceki
-        </button>
-        <button onClick={nextPage} disabled={currentPage === totalPages}>
-          Sonraki
-        </button>
-      </div> */}
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { RegisterURL } from "../../data";
+import authService from "../../contexts/Authservice";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -17,19 +16,13 @@ const Register = () => {
       alert("Şifreler uyuşmuyor.");
     }
     try {
-      const response = await axios.post(RegisterURL, {
-        name,
-        surname,
-        email,
-        password,
-      });
-
-      if (response.status === 200) {
-        const data = response.data;
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("email", email);
-        navigate("/login");
-      }
+      await authService.signup(email,password,name,surname).then(
+        () => {
+          navigate("/login");
+          window.location.reload();
+        }
+      )
+      
     } catch (error) {
       alert("Kullanıcı adı veya şifre hatalı.");
     }
