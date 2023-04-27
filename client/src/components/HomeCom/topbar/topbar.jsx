@@ -19,7 +19,13 @@ const Topbar = () => {
 
   return (
     <div className="tp-bar">
-      <div className="logo-section">CRYPTO</div>
+      <div className="logo-section">
+        <a className="logo-section" href="/">
+          <img style={{width:'50px',height:'50px'}} src="images/logo.png" alt="logo" />
+          <h6>CoinPaws</h6>
+        </a>
+        
+      </div>
       <div className="links">
         <ul className="list">
           <li>

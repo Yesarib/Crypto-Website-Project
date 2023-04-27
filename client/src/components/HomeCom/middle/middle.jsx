@@ -7,7 +7,7 @@ const Middle = () => {
     
       <div className="cont">
         <div className="left">
-          <h2>A Crypto Stack</h2>
+          <h2>Bir Kripto Yığını</h2>
           <p>
             Bir çok kripto seçeneği ile, istediğiniz kriptolarda anlık
             değişimlere ve grafiklere göz at.

@@ -55,3 +55,7 @@ export const AddFavoriteURL =  `http://localhost:5258/api/Favorites`
 export const DeleteFavoriteURL = (userId,cryptoId) => `http://localhost:5258/api/Favorites/${userId}/${cryptoId}`
 
 export const KnnAlgorithm = (cryptoId) => `http://localhost:5258/api/Algorithm?cryptoId=${cryptoId}`
+export const DecisionTreeAlgorithm = (cryptoId) => `http://localhost:5258/api/Algorithm/Decision-Tree?cryptoId=${cryptoId}`
+
+
+export const TrendURL = "http://localhost:5258/api/Crypto/Trend"

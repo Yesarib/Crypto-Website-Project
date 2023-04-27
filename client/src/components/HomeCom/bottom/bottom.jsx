@@ -18,7 +18,7 @@ const Bottom = () => {
     <div className="bottom">
       <br />
       <div>
-        <h3> Top 10 Crypto List</h3>
+        <h3> En İyi 10 Kripto Listesi</h3>
       </div>
       <div className="crypto-header">
         <div className="data">

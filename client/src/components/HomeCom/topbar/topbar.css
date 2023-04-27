@@ -9,14 +9,21 @@ body {
 }
 
 .logo-section {
-  width: 30%;
+  width: 40%;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-family: "Gill Sans" sans-serif;
   font-size: 24px;
   color: white;
-  margin-top: 35px;
+  text-decoration: none;
+}
+
+.logo-section h6{
+  margin-left: 15px;
+  font-family: "Gill Sans" sans-serif;
+  font-size: 18px;
 }
 
 .links {

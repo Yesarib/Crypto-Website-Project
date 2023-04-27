@@ -134,6 +134,35 @@ namespace CryptoProject.Controllers
                 return BadRequest($"Error: Failed to parse JSON - {ex.Message}");
             }
         }
+
+        [HttpGet("Trend")]
+        public async Task<IActionResult> getTrend(){
+            var client = new HttpClient();
+            var response = await client.GetAsync("https://api.coingecko.com/api/v3/search/trending");
+            if (response == null)
+            {
+                return BadRequest();
+            }
+            var responseString = await response.Content.ReadAsStringAsync();
+            try
+            {
+                var jsonResponse = new { success = true, data = JObject.Parse(responseString) };
+
+                var jsonResult = JsonConvert.SerializeObject(jsonResponse);
+
+
+                return new ContentResult
+                {
+                    ContentType = "application/json",
+                    StatusCode = 200,
+                    Content = jsonResult
+                };
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error: Failed to parse JSON - {ex.Message}");
+            }
+        }
     }
     
 }

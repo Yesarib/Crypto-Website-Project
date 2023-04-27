@@ -1,7 +1,8 @@
 import React from "react";
 import AllCrypto from "../../components/CryptoCom/AllCrypto";
 import Slider from "../../components/CryptoCom/Slider";
-import Favorites from "../../components/Favorites/Favorites";
+import CryptoInfo from "../../components/CryptoInfo/CryptoInfo";
+import Trend from "../../components/Trending/Trend";
 
 const Cryptos = () => {
   return (
@@ -9,6 +10,10 @@ const Cryptos = () => {
       <Slider/>
       <br /><br />
       <AllCrypto />
+      <br /><br />
+      <CryptoInfo />
+      <br /><br /><br />
+      <Trend />
     </div>
   );
 };

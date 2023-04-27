@@ -13,7 +13,8 @@ namespace CryptoProject.Controllers
     public class AlgorithmController : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> getKNN(string cryptoId){
+        public async Task<IActionResult> getKNN(string cryptoId)
+        {
 
             var client = new HttpClient();
             var response = await client.GetAsync($"https://api.coingecko.com/api/v3/coins/{cryptoId}/market_chart?vs_currency=usd&days=365&interval=daily");
@@ -41,12 +42,41 @@ namespace CryptoProject.Controllers
 
                 var prediction = knn.Predict(new[] { new double[] { dataSet.Count } });
                 return Ok(prediction);
-                }
-                catch (System.Exception)
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("Decision-Tree")]
+        public async Task<IActionResult> getDecisionTree(string cryptoId)
+        {
+            var client = new HttpClient();
+            var response = await client.GetAsync($"https://api.coingecko.com/api/v3/coins/{cryptoId}/market_chart?vs_currency=usd&days=365");
+            if (response != null)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var data = JObject.Parse(content);
+                var prices = data["prices"].Select(p => (double)p[1]).ToArray();
+
+                if (prices != null)
                 {
-                    
-                    throw;
+                    var decisionTree = new DecisionTree(prices);
+                    var trend = decisionTree.CheckPriceTrend();
+
+                    return Ok(trend);
                 }
+                else
+                {
+                    return BadRequest("Prices data is null.");
+                }
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

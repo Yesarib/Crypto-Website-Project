@@ -4,7 +4,8 @@ import { HistoricalChart } from "../../../data";
 import { useParams } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import { chartDays } from "../../../data";
-import Knn from "../../KNN/Knn";
+import Knn from "../../Algorithms/Knn";
+import DecisionTree from '../../Algorithms/DecisionTree'
 import authService from "../../../contexts/Authservice";
 import { Button } from "@mui/material";
 import {
@@ -115,10 +116,12 @@ const Chart = () => {
     {currentUser ? (
       <div className="algorithms">
       <div className="algorithm">
+        <h3>KNN</h3>
         <Knn cryptoId={id} />
       </div>
       <div className="algorithm">
-        <Knn cryptoId={id} />
+        <h3>Karar Ağacı</h3>
+        <DecisionTree cryptoId={id} />
       </div>
     </div>
     ) : (
