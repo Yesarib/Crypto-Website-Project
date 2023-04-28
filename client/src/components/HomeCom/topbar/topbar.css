@@ -4,7 +4,7 @@ body {
 
 .tp-bar{
   /* background-image: -webkit-linear-gradient(50deg, #FFA500 50%, #F7931A 50%); */
-  box-shadow: 0px 2px 4px rgba(71, 47, 1, 0.55);
+  box-shadow: 0px 2px 4px #212529;
   display: flex;
 }
 
@@ -35,6 +35,10 @@ body {
   align-items: center;
   text-align: center;
   text-decoration: none;
+}
+
+.links:hover{
+  color: orange;
 }
 
 .list {
@@ -82,4 +86,10 @@ body {
 
 .dropdown-content li a:hover {
   color: #5bc0de;
+}
+
+
+.login-bg {
+  color: white;
+  text-decoration: none;
 }

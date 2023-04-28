@@ -20,6 +20,7 @@ import {
   Legend,
 } from "chart.js";
 import "./chart.css";
+import Suggestion from "../../Suggestions/Suggestion";
 
 ChartJS.register(
   CategoryScale,
@@ -43,8 +44,8 @@ const Chart = () => {
   const fetchCoin = async () => {
     const { data } = await axios.get(HistoricalChart(id, days));
     setflag(true);
-    setHistoricData(data.data.prices);
-    // console.log(data.prices);
+    setHistoricData(data.data.chart);
+    console.log(data.data.chart);
   };
 
 
@@ -127,6 +128,9 @@ const Chart = () => {
     ) : (
       <div></div>
     )}
+    <div>
+      <Suggestion cryptoId={id}/>
+    </div>
     
   </>
   );

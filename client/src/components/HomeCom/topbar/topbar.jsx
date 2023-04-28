@@ -53,7 +53,7 @@ const Topbar = () => {
             <li className="menu-list">
               <span className="dropdown">
                 <span style={{ color: "white" }}>
-                  Merhaba{" "}
+                  Merhaba
                   <span style={{ color: "orange" }}> {user.name} </span>
                 </span>
                 <ul className="dropdown-content">
@@ -77,12 +77,10 @@ const Topbar = () => {
           )}
           {!currentUser && (
             <li>
-              <a
-                style={{ color: "white", textDecoration: "none" }}
+              <a className="login-bg"
                 href="/login"
               >
-                {" "}
-                Giriş{" "}
+                Giriş
               </a>
             </li>
           )}

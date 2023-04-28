@@ -17,7 +17,9 @@ namespace CryptoProject.Controllers
         {
 
             var client = new HttpClient();
-            var response = await client.GetAsync($"https://api.coingecko.com/api/v3/coins/{cryptoId}/market_chart?vs_currency=usd&days=365&interval=daily");
+            // var response = await client.GetAsync($"https://api.coingecko.com/api/v3/coins/{cryptoId}/market_chart?vs_currency=usd&days=365&interval=daily");
+            var response = await client.GetAsync($"https://api.coinstats.app/public/v1/charts?period=1y&coinId={cryptoId}");
+
             if (response == null)
             {
                 return BadRequest();
@@ -26,7 +28,7 @@ namespace CryptoProject.Controllers
             {
                 var responseString = await response.Content.ReadAsStringAsync();
                 // var jsonObject = JObject.Parse(responseString);
-                var prices = JObject.Parse(responseString)["prices"].ToArray();
+                var prices = JObject.Parse(responseString)["chart"].ToArray();
                 var dataSet = new List<double[]>();
 
                 for (int i = 0; i < prices.Length; i++)
@@ -54,12 +56,13 @@ namespace CryptoProject.Controllers
         public async Task<IActionResult> getDecisionTree(string cryptoId)
         {
             var client = new HttpClient();
-            var response = await client.GetAsync($"https://api.coingecko.com/api/v3/coins/{cryptoId}/market_chart?vs_currency=usd&days=365");
+            var response = await client.GetAsync($"https://api.coinstats.app/public/v1/charts?period=1y&coinId={cryptoId}");
+
             if (response != null)
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var data = JObject.Parse(content);
-                var prices = data["prices"].Select(p => (double)p[1]).ToArray();
+                var prices = data["chart"].Select(p => (double)p[1]).ToArray();
 
                 if (prices != null)
                 {

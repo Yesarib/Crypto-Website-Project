@@ -82,7 +82,7 @@ namespace CryptoProject.Controllers
         public async Task<IActionResult> SingleCoin(string id)
         {
             var client = new HttpClient();
-            var response = await client.GetAsync($"https://api.coingecko.com/api/v3/coins/{id}");
+            var response = await client.GetAsync($"https://api.coinstats.app/public/v1/coins/{id}?currency=USD");
             if (response == null)
             {
                 return BadRequest();
@@ -110,7 +110,7 @@ namespace CryptoProject.Controllers
         public async Task<IActionResult> HistoricalChart(string id, int days=365)
         {
             var client = new HttpClient();
-            var response = await client.GetAsync($"https://api.coingecko.com/api/v3/coins/{id}/market_chart?vs_currency=usd&days={days}");
+            var response = await client.GetAsync($"https://api.coinstats.app/public/v1/charts?period=1y&coinId={id}");
             if (response == null)
             {
                 return BadRequest();

@@ -51,7 +51,7 @@ const Footer = () => {
             </li>
             <li>
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/584px-Twitter-logo.svg.png"
+                src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png"
                 alt=""
               />
             </li>

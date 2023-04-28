@@ -1,0 +1,117 @@
+.suggestion{
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #212529;
+    border-bottom: 2px solid #212529;
+    width: 80%;
+    margin-left: 10rem;
+}
+
+.sugg {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: #212529;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 38px;
+  filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 10%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sugg .wrapper {
+  width: 150px;
+  height: 150px;
+}
+
+.sugg .banner-image {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.sugg .banner-image img {
+  max-width: 70px;
+  max-height: 100px;
+}
+.sugg .h4 {
+  font-family: "Righteous", sans-serif;
+  color: rgba(255, 255, 255, 0.98);
+  margin-top: 5px;
+}
+.sugg .h5 {
+    font-family: "Righteous", sans-serif;
+    color: rgba(209, 209, 209, 0.98);
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+.sugg .p {
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-top: 1.2rem;
+}
+
+.sugg .button-wrapper {
+  margin-top: 18px;
+}
+
+.sugg .btn {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 0.5rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.sugg .btn + .btn {
+  margin-left: 10px;
+}
+
+.sugg .outline {
+  background: transparent;
+  color: rgba(0, 212, 255, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.sugg .outline:hover {
+  transform: scale(1.125);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.sugg .fill {
+  background: rgba(0, 212, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+  filter: drop-shadow(0);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.fill:hover {
+  transform: scale(1.125);
+  border-color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
+  transition: all 0.3s ease;
+}
+
+
+.red {
+    color: red;
+}
+  
+.green {
+    color: green;
+}
