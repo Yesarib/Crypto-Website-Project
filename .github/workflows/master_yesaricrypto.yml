@@ -24,7 +24,7 @@ jobs:
 
       - name: Build with dotnet
         run: |
-              cd server/CryptoProject
+              cd /server
               dotnet build --configuration Release
 
       - name: dotnet publish
