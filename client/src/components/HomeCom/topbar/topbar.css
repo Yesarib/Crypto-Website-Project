@@ -2,7 +2,7 @@ body {
   background-color: #16171a;
 }
 
-.tp-bar{
+.tp-bar {
   /* background-image: -webkit-linear-gradient(50deg, #FFA500 50%, #F7931A 50%); */
   box-shadow: 0px 2px 4px #212529;
   display: flex;
@@ -14,16 +14,16 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: "Gill Sans" sans-serif;
-  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
   color: white;
   text-decoration: none;
 }
 
-.logo-section h6{
+.logo-section h6 {
   margin-left: 15px;
-  font-family: "Gill Sans" sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
 }
 
 .links {
@@ -37,10 +37,6 @@ body {
   text-decoration: none;
 }
 
-.links:hover{
-  color: orange;
-}
-
 .list {
   list-style-type: none;
 }
@@ -50,8 +46,33 @@ body {
   margin: 2rem;
 }
 
-.list li a:hover{
-  color: orange;
+.list li a {
+  position: relative;
+  display: inline-block;
+  padding: 4px 0;
+  font-family: 'Poppins', sans-serif;
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.list li a::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: orange;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+
+.list li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .dropdown {
@@ -87,7 +108,6 @@ body {
 .dropdown-content li a:hover {
   color: #5bc0de;
 }
-
 
 .login-bg {
   color: white;

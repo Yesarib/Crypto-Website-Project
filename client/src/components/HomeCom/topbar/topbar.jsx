@@ -21,10 +21,9 @@ const Topbar = () => {
     <div className="tp-bar">
       <div className="logo-section">
         <a className="logo-section" href="/">
-          <img style={{width:'50px',height:'50px'}} src="images/logo.png" alt="logo" />
+          <img style={{width:'80px',height:'80px'}} src="images/logo.png" alt="logo" />
           <h6>CoinPaws</h6>
         </a>
-        
       </div>
       <div className="links">
         <ul className="list">
@@ -58,7 +57,7 @@ const Topbar = () => {
                 </span>
                 <ul className="dropdown-content">
                   <li>
-                    <a style={{ color: "white", textDecoration: "none" }} href="%">
+                    <a style={{ color: "white", textDecoration: "none" }} href="/profile">
                       Profil
                     </a>
                   </li>

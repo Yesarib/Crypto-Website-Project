@@ -1,0 +1,50 @@
+.profile{
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin-top: 7rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.profile-left{
+    color: white;
+    border: 1px solid #212529;
+    width: 400px;
+    height: 600px;
+    border-radius: 15px;
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-img{
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    border-radius: 50%;
+    margin-left: 38%;
+    margin-top: 35px;
+}
+
+.profile-upt{
+    width: 80%;
+    height: 350px;
+    border-bottom: 1px solid rgb(161, 161, 161);
+    border-top: 1px solid rgb(161, 161, 161);
+    margin-left: 35px;
+    margin-top: 35px;
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-upt .profile-btn{
+    margin-left: 15px;
+    justify-content: center;
+    text-align: center;
+    text-transform: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+
+}

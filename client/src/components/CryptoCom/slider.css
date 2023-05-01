@@ -1,0 +1,40 @@
+.slider-container {
+    width: 80%;
+    height: 400px;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slider {
+    display: flex;
+    flex-wrap: nowrap;
+    width: fit-content;
+  }
+  
+  .slider-row {
+    padding: 80px;
+    }
+  
+  .slider-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .slider-coin {
+    margin-left: 10px;
+    color: white;
+  }
+
+  .slider-symbol{
+    margin-top: 15px;
+  }
+  .slider-price{
+    color: white;
+    margin-left: 10px;
+  }
+  .slider-data {
+    margin-left: 5px;
+  }
+  

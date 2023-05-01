@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import News from './Pages/News/News';
 import Coin from './Pages/Coin/Coin';
 import Register from './Pages/Login/Register';
+import Profile from './Pages/Profile/Profile';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <Route path='/news' element={<News />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register  />} />
+              <Route path='/profile' element={<Profile  />} />
             </Routes>
           <Footer />
         </Router>

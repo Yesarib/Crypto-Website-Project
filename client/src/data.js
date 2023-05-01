@@ -60,3 +60,5 @@ export const DecisionTreeAlgorithm = (cryptoId) => `http://localhost:5258/api/Al
 
 export const TrendURL = "http://localhost:5258/api/Crypto/Trend"
 export const SuggestionURL = (cryptoId) => `http://localhost:5258/api/Similarity/similarity?cryptoId=${cryptoId}`
+
+export const getUserById = (id) => `http://localhost:5258/api/User/${id}`

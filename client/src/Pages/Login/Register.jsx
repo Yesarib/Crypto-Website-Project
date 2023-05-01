@@ -16,13 +16,10 @@ const Register = () => {
       alert("Şifreler uyuşmuyor.");
     }
     try {
-      await authService.signup(email,password,name,surname).then(
-        () => {
-          navigate("/login");
-          window.location.reload();
-        }
-      )
-      
+      await authService.signup(email, password, name, surname).then(() => {
+        navigate("/login");
+        window.location.reload();
+      });
     } catch (error) {
       alert("Kullanıcı adı veya şifre hatalı.");
     }
@@ -37,6 +34,7 @@ const Register = () => {
             <p>En güncel kriptolar için hemen kayıt ol.</p>
           </div>
           <div className="inputs">
+            <label>Adınız</label>
             <input
               type="text"
               required="required"
@@ -45,9 +43,10 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <span className="user">Adınız</span>
           </div>
           <div className="inputs">
+            <label>Soyadınız</label>
+
             <input
               type="text"
               required="required"
@@ -56,9 +55,10 @@ const Register = () => {
               value={surname}
               onChange={(e) => setSurname(e.target.value)}
             />
-            <span className="user">Soyadınız</span>
           </div>
           <div className="inputs">
+            <label>Email</label>
+
             <input
               type="text"
               required="required"
@@ -67,9 +67,10 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <span className="user">Email</span>
           </div>
           <div className="inputs">
+            <label>Şifre</label>
+
             <input
               type="password"
               required="required"
@@ -78,9 +79,10 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <span className="user">Şifre</span>
           </div>
           <div className="inputs">
+            <label>Tekrar Şifre</label>
+
             <input
               type="password"
               required="required"
@@ -89,14 +91,12 @@ const Register = () => {
               value={repassword}
               onChange={(e) => setRePassword(e.target.value)}
             />
-            <span className="user">Tekrar Şifre</span>
           </div>
 
           <button className="enter"> Kayıt Ol </button>
-          <div>
+          <div className="login-alt">
             <p>Hesabınız zaten var mı ?</p>
-            <a style={{ color: "white" }} href="/login">
-              {" "}
+            <a href="/login">
               Giriş Yap
             </a>
           </div>

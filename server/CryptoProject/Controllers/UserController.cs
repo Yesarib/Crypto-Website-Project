@@ -34,6 +34,13 @@ namespace CryptoProject.Controllers
             return Ok(users);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(int id){
+            var user = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
+
+            return Ok(user);
+        }
+
         private async Task<int?> AuthenticateUser(string email, string password)
         {
             
