@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'coinpaws'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E3116285D349401A94E66CE6A13E6FC2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D5CCAA97A60449579E91AAAE425994CF }}
           package: .
