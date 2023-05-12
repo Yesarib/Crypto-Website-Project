@@ -10,8 +10,10 @@ const Suggestion = ({ cryptoId }) => {
     axios.get(SuggestionURL(cryptoId)).then((res) => {
       setCoin(res.data.OtherCryptos);
     });
+    
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(coin);
   return (
     <>
       <div style={{ color: "white", marginLeft: "10em", marginTop: "15rem" }}>
@@ -48,7 +50,3 @@ const Suggestion = ({ cryptoId }) => {
 };
 
 export default Suggestion;
-
-function numberWithCommas(x) {
-  return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}

@@ -37,7 +37,7 @@ builder.Services.AddCors(opt =>
 //{
 //    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CryptoProject", Version = "v1" });
-//    // diðer Swagger yapýlandýrma ayarlarý
+//    // diï¿½er Swagger yapï¿½landï¿½rma ayarlarï¿½
 //});
 
 var app = builder.Build();

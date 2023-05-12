@@ -98,7 +98,9 @@ namespace CryptoProject.Controllers
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
                 Claims = new Dictionary<string, object>
                 {
-                    { "name", user.Name }
+                    { 
+                        "name", user.Name
+                    }
                 }
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

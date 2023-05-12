@@ -11,7 +11,6 @@ const Upper = () => {
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
-    console.log(data.data);
     setCoin(data.data.coin);
   };
 

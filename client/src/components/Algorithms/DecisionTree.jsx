@@ -7,7 +7,6 @@ const Knn = ({cryptoId}) => {
     const getDecisionTree = () => {
         axios.get(DecisionTreeAlgorithm(cryptoId))
         .then((res) => {
-            console.log(res);
             setDecisionTree(res.data)
         })
     };

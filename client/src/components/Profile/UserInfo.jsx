@@ -3,7 +3,6 @@ import "./style.css";
 import { Button } from "@mui/material";
 
 const UserInfo = ( { user } ) => {
-  console.log(user);
 
   return (
     <div className="user-info">

@@ -8,7 +8,6 @@ const Bottom = () => {
   useEffect(() => {
     axios.get(BASEURL).then((res) => {
       setCrypto(res.data.data.coins);
-      console.log(res);
     });
   }, []);
   function numberWithCommas(x) {

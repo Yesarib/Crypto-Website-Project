@@ -24,6 +24,8 @@ body {
   margin-left: 15px;
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: orange;
 }
 
 .links {

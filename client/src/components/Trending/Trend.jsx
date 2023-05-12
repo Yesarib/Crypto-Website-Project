@@ -16,7 +16,6 @@ const Trend = () => {
     fetchData();
   }, []);
 
-  console.log(trendCoins);
   return (
     <div
       style={{

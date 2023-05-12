@@ -37,15 +37,12 @@ const Chart = () => {
   const { id } = useParams();
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
-  const [flag, setflag] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
   
   const fetchCoin = async () => {
     const { data } = await axios.get(HistoricalChart(id, days));
-    setflag(true);
     setHistoricData(data.data.chart);
-    console.log(data.data.chart);
   };
 
 
@@ -105,7 +102,6 @@ const Chart = () => {
             key={day.value}
             onClick={() => {
               setDays(day.value);
-              setflag(false);
             }}
             selected={day.value === days}
           >

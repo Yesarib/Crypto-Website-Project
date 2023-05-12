@@ -7,7 +7,6 @@ const Knn = ({cryptoId}) => {
     const getKnn = () => {
         axios.get(KnnAlgorithm(cryptoId))
         .then((res) => {
-            console.log(res);
             setKnn(res.data)
         })
     };
