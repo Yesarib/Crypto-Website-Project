@@ -16,7 +16,7 @@ const Topbar = () => {
   };
   const token = localStorage.getItem("userToken");
   const user = parseJwt(token);
-  const userName = user.name.charAt(0).toUpperCase() + user.name.slice(1);
+  const userName = user?.name.charAt(0).toUpperCase() + user?.name.slice(1);
 
   return (
     <div className="tp-bar">
@@ -54,7 +54,12 @@ const Topbar = () => {
               <span className="dropdown">
                 <span style={{ color: "white" }}>
                   {/* <img style={{width:'40px',height:'40px'}} className="person-icon" src="images/personorange.png" alt="" /> */}
-                  <span style={{ color: "orange" }}> {userName} </span>
+                  { currentUser ? (
+                    <span style={{ color: "orange" }}> {userName} </span>
+
+                  ):(
+                    <span>NaN</span>
+                  )}
                 </span>
                 <ul className="dropdown-content">
                   <li>
